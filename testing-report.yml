@@ -1,0 +1,63 @@
+- summary: |
+    Регистрация пользователя через email
+  status: pass
+
+- summary: |
+    Авторизация пользователя с существующим email и паролем
+  status: pass
+
+- summary: |
+    Проверка входа пользователя с несуществующими email и паролем
+  status: pass
+
+- summary: |
+    Восстановление пароля зарегистрированного пользователя
+  status: pass
+
+- summary: |
+    Восстановление пароля несуществующего пользователя
+  status: pass
+
+- summary: |
+    Авторизация пользователя через GitHub/Discord
+  status: pass
+
+- summary: |
+    Создание игры
+  status: pass
+
+- summary: |
+    Фильтрация типа заданий
+  status: pass
+
+- summary: |
+    Выбор соперника из других пользователей
+  status: pass
+
+- summary: |
+    Отправка сообщений в чат
+  status: pass
+
+- summary: |
+    Присоединение к идущей игре
+  status: pass
+
+- summary: |
+    Просмотр рейтинга пользователя
+  status: pass
+
+- summary: |
+    Проверка валидации Nickname при регистрации
+  status: pass
+
+- summary: |
+    Проверка валидации email при регистрации
+  status: pass
+
+- summary: |
+    Проверка валидации пароля при регистрации
+  status: pass
+
+- summary: |
+    Проверка валидации поля Password Confirmation
+  status: pass
