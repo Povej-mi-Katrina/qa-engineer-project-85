@@ -1,0 +1,238 @@
+- summary: |
+    Регистрация пользователя через email
+  requirement: |
+    Пользователь имеет возможность зарегистрироваться 
+  prerequisites: |
+   Открыта страница регистрации
+  test-data: |
+    Тестовые данные
+    Nickname = CatherineV email = katrina.208@mail.ru password = 12345Abc 
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Вводим Password
+    - Вводим Password Confirmation
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Пользователь зарегистрирован, редирект на главную страницу, пользователь авторизован
+
+- summary: |
+    Авторизация пользователя с существующим email и паролем
+  requirement: |
+    При верном вводе email и пароля пользователь должен войти в систему
+  prerequisites:
+    Открыта страница логина
+  test-data: |
+    Email = katrina.208@mail.ru password = 12345Abc
+  steps:
+    - Вводим Email
+    - Вводим пароль
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Пользователь должен попасть на главную страницу
+
+- summary: |
+    Проверка входа пользователя с несуществующими email и паролем
+  requirement: |
+    При неправильном email или пароле пользователь должен получить сообщение об ошибке
+  prerequisites:
+    Открыта страница логина
+  test-data: |
+    Email = test@yahoo.com password = 1111
+  steps:
+    - Вводим Email
+    - Вводим пароль
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Выводится сообщение об ошибке
+
+- summary: |
+    Восстановление пароля зарегистрированного пользователя
+  requirement: |
+    Зарегистрированный пользователь имеет возможность сбросить старый пароль
+  prerequisites:
+    Открыта страница логина
+  test-data: |
+    Email = katrina.208@mail.ru  
+  steps:
+    - Нажимаем кнопку "Forgot password?"
+    - Вводим Email
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    На почту отправлена ссылка для сброса пароля
+
+- summary: |
+    Восстановление пароля несуществующей почты
+  requirement: |
+    Зарегистрированный пользователь имеет возможность сбросить старый пароль
+  prerequisites:
+    Открыта страница логина
+  test-data: |
+    Email = test123@test.ru  
+  steps:
+    - Нажимаем кнопку "Forgot password?"
+    - Вводим Email
+    - Нажимаем кнопку "Submit"
+  expected-result: |
+    Выводится сообщение об ошибке (пользователя с таким email не существует)
+
+- summary: |
+    Авторизация пользователя через GitHub/Discord
+  requirement: |
+    Пользователь имеет возможность авторизоваться с существующим аккаунтом на GitHub или Discord
+  prerequisites: |
+   Открыта страница регистрации
+  test-data: |
+    Тестовые данные github/discord
+    email: test@test.ru password = 12345Abc
+  steps:
+    - Нажимаем кнопку «Sign up with GitHub/Discord»
+  expected-result: |
+    Редирект на форму авторизации в GitHub/Discord (если пользователь там уже не авторизован) или редирект на главную с авторизацией пользователя (если пользователь уже авторизован в github/discord)
+
+- summary: |
+    Создание игры
+  requirement: |
+    Пользователь имеет создать игру
+  prerequisites: |
+   Пользователь авторизован, открыта главная страница
+  test-data: |
+    Email = katrina.208@mail.ru password = 12345Abc
+  steps:
+    - Нажимаем кнопку «Create a game»
+    - Выбираем сложность, тип соперника, тип задания
+    - Нажимаем кнопку «Create battle»
+  expected-result: |
+    Открывается окно игры с заданием, редактором кода, чатом
+
+- summary: |
+    Фильтрация типа заданий
+  requirement: |
+    Пользователь имеет возможность выбрать тип задания
+  prerequisites: |
+   Пользователь авторизован, открыто окно «Create a game»
+  test-data: |
+    Email = katrina.208@mail.ru password = 12345Abc
+  steps:
+    - Выбираем любой тег под «Choose task by name or tags»
+  expected-result: |
+    В выпадающем меню отображаются задания, подходящие под фильтр
+    
+- summary: |
+    Выбор соперника из других пользователей
+  requirement: |
+    Пользователь имеет возможность выбрать тип соперника
+  prerequisites: |
+   Пользователь авторизован, открыто окно «Create a game»
+  test-data: |
+    Email = katrina.208@mail.ru password = 12345Abc
+  steps:
+    - В «Game Type» выбираем «With a friend»
+  expected-result: |
+    В выпадающем меню отображаются все зарегистрированные пользователи
+
+- summary: |
+    Отправка сообщений в чат
+  requirement: |
+    Пользователь имеет возможность оставлять сообщения в чатах
+  prerequisites: |
+   Пользователь авторизован, открыта главная страница
+  test-data: |
+    Email = katrina.208@mail.ru password = 12345Abc
+  steps:
+    - В поле с чатом вводим любое сообщение
+    - Нажимаем «Send»
+  expected-result: |
+    В поле с чатом отображается отправленное пользователем сообщение
+
+- summary: |
+    Присоединение к идущей игре
+  requirement: |
+    Пользователь имеет возможность присоединиться к запущенной игре в качестве зрителя
+  prerequisites: |
+   Пользователь авторизован, открыта главная страница
+  test-data: |
+    Email = katrina.208@mail.ru password = 12345Abc
+  steps:
+    - В Lobby выбираем любую активную игру между другими пользователями
+  expected-result: |
+    Открывается окно игры с заданием, редакторами кода у соперников, чатом для пользователя-зрителя
+
+- summary: |
+    Просмотр рейтинга пользователя
+  requirement: |
+    Сайт рассчитывает рейтинг пользователя в сумме результатов пройденных игр
+  prerequisites: |
+   Пользователь авторизован, открыта главная страница
+  test-data: |
+    Email = katrina.208@mail.ru password = 12345Abc
+  steps:
+    - В LEADERBOARD выбираем любого игрока
+    - Переходим в его профиль
+  expected-result: |
+    Отображается информация о количестве сыгранных матчей и место в рейтинге
+
+- summary: |
+    Проверка валидации Nickname при регистрации
+  requirement: |
+    Nickname должен содержать латиницу. Может также содержать цифры и нижнее подчеркивание. 
+  prerequisites: |
+   Открыта страница регистрации
+  test-data: |
+    Nickname = 111 Email = katrina.208@mail.ru password = 12345Abc
+  steps:
+    - Вводим Nickname
+    - Вводим email
+    - Вводим Password Confirmation
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Отображается сообщение о невалидности Nickname
+
+- summary: |
+    Проверка валидации email при регистрации
+  requirement: |
+    Email должен соответствовать стандарту: содержать латиницу, может содержать цифры в адресе, значок "@", название почтового сайта, домен в формате ".%"
+  prerequisites: |
+   Открыта страница регистрации
+  test-data: |
+    Nickname = Cat Email = 11.ru password = 12345Abc
+  steps:
+    - Вводим Nickname
+    - Вводим email 
+    - Вводим Password Confirmation
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Отображается сообщение о невалидности email
+
+- summary: |
+    Проверка валидации пароля при регистрации
+  requirement: |
+    Пароль должен содержать 6-16 символов
+  prerequisites: |
+   Открыта страница регистрации
+  test-data: |
+    Nickname = Cat Email = test@test.ru password = 123
+  steps:
+    - Вводим Nickname
+    - Вводим email 
+    - Вводим пароль
+  expected-result: |
+    Отображается сообщение о невалидности пароля
+
+- summary: |
+    Проверка валидации поля Password Confirmation
+  requirement: |
+    Значения полей Password и Password Confirmation должны совпадать
+  prerequisites: |
+   Открыта страница регистрации
+  test-data: |
+    Nickname = Cat Email = test@test.ru password = 12345Abc password confirmation = 111
+  steps:
+    - Вводим Nickname
+    - Вводим email 
+    - Вводим Password Confirmation
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Отображается сообщение о несовпадении значения полей Password и Password Confirmation
+    
+ 
