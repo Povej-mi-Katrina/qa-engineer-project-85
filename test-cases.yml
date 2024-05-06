@@ -305,7 +305,7 @@
     Пользователь имеет возможность вызвать противника на матч-реванш в случае, если время матча истекло до чьей-либо победы
   prerequisites: |
     Пользователь авторизован, открыта главная страница
-      test-data: |
+  test-data: |
     Login = katrina.208@mail.ru Password = 12345Ab
   steps:
     - Нажимаем Create a game
@@ -323,7 +323,7 @@
     Пользователь имеет возможность выбрать язык программирования - clojure, cpp, csharp, dart, elixir, go, haskel, java, javascript, kotlin, php, python, ruby, rust, typescript
   prerequisites: |
     Пользователь авторизован, открыта главная страница
-      test-data: |
+  test-data: |
     Login = katrina.208@mail.ru Password = 12345Ab
   steps:
     - Нажимаем Create a game
@@ -339,7 +339,7 @@
     Пользователь имеет возможность очистить поле редактора кода до исходных значений
   prerequisites: |
     Пользователь авторизован, открыта главная страница
-      test-data: |
+  test-data: |
     Login = katrina.208@mail.ru Password = 12345Ab
   steps:
     - Нажимаем Create a game
@@ -356,7 +356,7 @@
     Редактор кода выдает сообщение об ошибке в веденном пользователем коде
   prerequisites: |
     Пользователь авторизован, открыта главная страница
-      test-data: |
+  test-data: |
     Login = katrina.208@mail.ru Password = 12345Ab
   steps:
     - Нажимаем Create a game
@@ -373,7 +373,7 @@
     Пользователь имеет возможность выбрать язык программирования - clojure, cpp, csharp, dart, elixir, go, haskel, java, javascript, kotlin, php, python, ruby, rust, typescript
   prerequisites: |
     Пользователь авторизован, открыта страница Settings
-      test-data: |
+  test-data: |
     Login = katrina.208@mail.ru Password = 12345Ab
   steps:
     - В выпадающем меню Your Weapon выбираем любой язык программирования
